@@ -1,10 +1,9 @@
 <?php
 
-/* --PDO é uma abstração para acesso a diversos bancos de dados-- */
+/* --Criando uma conexao com o banco de dados-- */
+$databasePath = __DIR__ . '/banco.sqlite';
+$pdo = new PDO('sqlite:' . $databasePath);
 
-$caminhoBanco = __DIR__ . 'banco.sqlite';
+$pdo->exec('CREATE TABLE students (id INTEGER PRIMARY KEY, name TEXT, birth_date TEXT);');
 
-/* --driver:informacoes_especificas_do_driver-- */
-$pdo =  new PDO('sqlite:' . $caminhoBanco);
-echo "conectei";
-
+echo 'Conectei';

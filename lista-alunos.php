@@ -6,8 +6,7 @@ use Alura\Pdo\Domain\Model\Student;
 
 require_once 'vendor/autoload.php';
 
-$databasePath = __DIR__ . '/banco.sqlite';
-$pdo = new PDO('sqlite:' . $databasePath);
+$pdo = \Alura\Pdo\Infrastructure\Persistence\ConnectionCreator::createConnection();
 
 /* --fetchAll() retornara um array da consulta executada abaixo-- */
 $statement = $pdo->query('SELECT * FROM students;');
